@@ -1,0 +1,14 @@
+.status-badge {
+  display: inline-block;
+  padding: 0.2rem 0.65rem;
+  border-radius: 20px;
+  font-size: 0.78rem;
+  font-weight: 600;
+  white-space: nowrap;
+}
+.status-applied    { background: #dbeafe; color: #1d4ed8; }
+.status-interviewing { background: #ede9fe; color: #5b21b6; }
+.status-technical  { background: #fef3c7; color: #92400e; }
+.status-offered    { background: #d1fae5; color: #065f46; }
+.status-rejected   { background: #fee2e2; color: #991b1b; }
+.status-withdrawn  { background: #f1f5f9; color: #475569; }
