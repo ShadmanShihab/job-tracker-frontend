@@ -28,6 +28,7 @@ export default function ApplicationFormPage() {
   const navigate = useNavigate();
   const [form, setForm] = useState(emptyForm);
   const [cvFile, setCvFile] = useState(null);
+  const [existingCvUrl, setExistingCvUrl] = useState(null);
   const [screenshots, setScreenshots] = useState([]);
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(false);
@@ -49,6 +50,7 @@ export default function ApplicationFormPage() {
         contactPersonEmail: data.contactPersonEmail || '',
         notes: data.notes || '',
       });
+      if (data.cvFileUrl) setExistingCvUrl(data.cvFileUrl);
     });
   }, [id, isEdit]);
 
@@ -180,8 +182,13 @@ export default function ApplicationFormPage() {
             <h2>Files</h2>
             <div className="form-group">
               <label>CV / Resume (PDF)</label>
+              {isEdit && existingCvUrl && (
+                <div className="form-hint">
+                  Current CV: <a href={existingCvUrl} target="_blank" rel="noreferrer">View uploaded CV</a>
+                  {' — upload a new file below to replace it'}
+                </div>
+              )}
               <input type="file" accept=".pdf" onChange={(e) => setCvFile(e.target.files[0])} />
-              {isEdit && <span className="form-hint">Upload a new file to replace the existing one</span>}
             </div>
             <div className="form-group">
               <label>Job Screenshots (Images)</label>

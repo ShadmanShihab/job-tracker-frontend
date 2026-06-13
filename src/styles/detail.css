@@ -90,4 +90,7 @@
   color: #94a3b8;
 }
 
+.detail-empty { font-size: 0.875rem; color: #94a3b8; margin: 0; }
+.detail-empty a { color: #6366f1; }
+
 .error-msg { color: #dc2626; padding: 2rem; text-align: center; }

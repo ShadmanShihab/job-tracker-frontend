@@ -118,14 +118,16 @@ export default function ApplicationDetailPage() {
           </div>
         )}
 
-        {app.cvFileUrl && (
-          <div className="detail-section">
-            <h3>CV / Resume</h3>
+        <div className="detail-section">
+          <h3>CV / Resume</h3>
+          {app.cvFileUrl ? (
             <a href={app.cvFileUrl} target="_blank" rel="noreferrer" className="btn btn-secondary">
               View CV (PDF)
             </a>
-          </div>
-        )}
+          ) : (
+            <p className="detail-empty">No CV uploaded. <Link to={`/applications/${id}/edit`}>Edit to add one.</Link></p>
+          )}
+        </div>
 
         {app.screenshotUrls?.length > 0 && (
           <div className="detail-section">
